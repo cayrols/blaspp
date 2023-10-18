@@ -62,7 +62,7 @@ void check_gemm(
     real_t work[1], Cout_norm;
     Cout_norm = lapack_lange( "f", m, n, C, ldc, work );
     error[0] = Cout_norm
-             / (sqrt(real_t(k)+2)*std::abs(alpha)*Anorm*Bnorm
+             / ((real_t(k)+2)*std::abs(alpha)*Anorm*Bnorm
                  + 2*std::abs(beta)*Cnorm);
     if (verbose) {
         printf( "error: ||Cout||=%.2e / (sqrt(k=%lld + 2)"
